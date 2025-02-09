@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    app: burger-ingredients-np
+  name: burger-ingredients-np
+spec:
+  ports:
+    - name: 8000-8000
+      port: 32348
+      protocol: TCP
+      targetPort: 8080
+  selector:
+    app: burger-ingredients
+  type: ClusterIP

@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: {{.Values.burger_ingredients.app}}
+  name: {{.Values.burger_ingredients.app}}
+spec:
+  replicas: {{.Values.burger_ingredients.replicaCount}}
+  selector:
+    matchLabels:
+      app: {{.Values.burger_ingredients.app}}
+  template:
+    metadata:
+      labels:
+        app: {{.Values.burger_ingredients.app}}
+    spec:
+      containers:
+        - image: {{.Values.burger_ingredients.image.repository}}:{{.Values.burger_ingredients.image.tag}}
+          name: {{.Values.burger_ingredients.app}}
+          ports:
+            - containerPort: {{.Values.burger_ingredients.image.containerPort}}
+
+

@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: {{.Values.authserver.app}}
+  name: {{.Values.authserver.app}}
+spec:
+  replicas: {{.Values.authserver.replicaCount}}
+  selector:
+    matchLabels:
+      app: {{.Values.authserver.app}}
+  template:
+    metadata:
+      labels:
+        app: {{.Values.authserver.app}}
+    spec:
+      containers:
+        - image: {{.Values.authserver.image.repository}}:{{.Values.authserver.image.tag}}
+          name: {{.Values.authserver.app}}
+          ports:
+            - containerPort: {{.Values.authserver.image.containerPort}}
+
+

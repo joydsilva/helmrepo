@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: {{.Values.burger_order.app}}
+  name: {{.Values.burger_order.app}}
+spec:
+  replicas: {{.Values.burger_order.replicaCount}}
+  selector:
+    matchLabels:
+      app: {{.Values.burger_order.app}}
+  template:
+    metadata:
+      labels:
+        app: {{.Values.burger_order.app}}
+    spec:
+      containers:
+      - image: {{.Values.burger_order.image.repository}}:{{.Values.burger_order.image.tag}}
+        name: {{.Values.burger_order.app}}
+        ports:
+        - containerPort: {{.Values.burger_order.image.containerPort}}
+
+

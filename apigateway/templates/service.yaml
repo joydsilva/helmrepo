@@ -1,0 +1,77 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    app: api-gateway-np
+  name: api-gateway-np
+spec:
+  ports:
+    - name: 8000-8000
+      nodePort: 32349
+      port: 8080
+      protocol: TCP
+      targetPort: 8080
+  selector:
+    app: api-gateway
+  type: NodePort
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mysql
+spec:
+  ports:
+    - name: 3306-3306
+      port: 3306
+      protocol: TCP
+      targetPort: 3306
+  type: ClusterIP
+---
+apiVersion: v1
+kind: Endpoints
+metadata:
+  name: mysql
+subsets:
+  - addresses:
+      - ip: 192.168.65.2
+    ports:
+      - port: 3306
+---
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    app: zipkin-lb
+  name: zipkin-lb
+spec:
+  ports:
+    - name: 9411-9411
+      port: 9411
+      protocol: TCP
+      targetPort: 9411
+  selector:
+    app: zipkin
+  type: ClusterIP
+status:
+  loadBalancer: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    app: zipkin
+  name: zipkin
+spec:
+  ports:
+    - name: 32312-9411
+      port: 32312
+      protocol: TCP
+      targetPort: 9411
+  selector:
+    app: zipkin
+  type: NodePort
+status:
+  loadBalancer: {}
