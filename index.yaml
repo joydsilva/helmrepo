@@ -1,0 +1,47 @@
+apiVersion: v1
+entries:
+  api-gateway:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2025-02-08T20:08:50.9381128-07:00"
+    description: A Helm chart for Kubernetes
+    digest: a2013bb0bc373df158638b77f768704146382df5d5fcaeec8f8cd7d42cce14d8
+    name: api-gateway
+    type: application
+    urls:
+    - api-gateway-0.1.0.tgz
+    version: 0.1.0
+  authenticationserver:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2025-02-08T20:08:50.9386411-07:00"
+    description: A Helm chart for Kubernetes
+    digest: 5f4940c53cff3ac32b5cf530ab90a887c69adf8a8ec26c2c5df4e265ec2e1a43
+    name: authenticationserver
+    type: application
+    urls:
+    - authenticationserver-0.1.0.tgz
+    version: 0.1.0
+  burger_ingredients:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2025-02-08T20:08:50.9391651-07:00"
+    description: A Helm chart for Kubernetes
+    digest: ab79c275761e90bb46a2b9b724fdc9795d28191d3e725d871dadcac860b4ac19
+    name: burger_ingredients
+    type: application
+    urls:
+    - burger_ingredients-0.1.0.tgz
+    version: 0.1.0
+  burger_order:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2025-02-08T20:08:50.9396858-07:00"
+    description: A Helm chart for Kubernetes
+    digest: f649ff31a33ad5adbd99ac5f4d71647a7bc8ab6e3967bce474ebc8d095bcbcfa
+    name: burger_order
+    type: application
+    urls:
+    - burger_order-0.1.0.tgz
+    version: 0.1.0
+generated: "2025-02-08T20:08:50.9370602-07:00"
