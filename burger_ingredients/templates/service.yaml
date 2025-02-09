@@ -3,12 +3,12 @@ kind: Service
 metadata:
   creationTimestamp: null
   labels:
-    app: burger-ingredients-np
-  name: burger-ingredients-np
+    app: burger-ingredients
+  name: burger-ingredients
 spec:
   ports:
-    - name: 8000-8000
-      port: 32348
+    - name: 8080-8080
+      port: 8080
       protocol: TCP
       targetPort: 8080
   selector:
